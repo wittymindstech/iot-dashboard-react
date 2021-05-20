@@ -1,13 +1,7 @@
 # iot-dashboard-react
 Smart Home &amp; Smart city IoT  device dashboard 
 
-# ritika: steps to execute node js and react project
-
-npm install
-
-yarn install
-
-
-![](reactflow.jpg)
-
-#add a dashboard 
+<h3>Login Screen</h3>
+<img src = ""/>
+<h3>Welcome Screen</h3>
+<img src = ""/>
