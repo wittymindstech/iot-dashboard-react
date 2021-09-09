@@ -1,12 +1,26 @@
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
-import {StyleSheet, View, Text, ImageBackground, Image, StatusBar} from 'react-native'
-
+import {StyleSheet, View, Text, ImageBackground, Image, StatusBar, Button} from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+//import { createStackNavigator } from '@react-navigation/stack';
 export default class WelcomeScreen extends React.Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          open: false
+        };
+        this.navigating = props.navigation;
+      }
+     
     render(){
+        //const Stack = createStackNavigator();
         return (
+            
         <View style = {styles.root}>
+            
             <ImageBackground source = {require("../assets/BackgroundScreen.jpeg")} style = {{height:"100%", width: "100%",flex:1}}>
+            
                 <View style = {styles.header}>
                     <Image source = {require("../assets/Welcome.png")} style = {{resizeMode:"contain", width: "80%", justifyContent:"flex-start"}}></Image>
                     <Text style = {styles.textst}>User</Text>
@@ -43,6 +57,22 @@ export default class WelcomeScreen extends React.Component{
                         </Text>
                     </View>
                 </View>
+                <View style={styles.buttonContainer}>
+                    <Button
+                        title="Login"
+                        color="#4287f5"
+                        onPress={() => this.navigating.navigate('Login')}
+                        style={styles.button}
+                    />
+                    
+                    <Button
+                        title="Devices"
+                        color="#4287f5"
+                        onPress={() => this.navigating.navigate('DeviceList')}
+                        style={styles.button}
+                    />
+                    
+                </View>
             </ImageBackground>
             
         </View>
@@ -58,7 +88,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     header: {
-        flex: 0.4,
+        flex: 0.5,
         alignItems: 'center',
     // backgroundColor:"#fff",
         fontWeight: "bold",
@@ -77,7 +107,7 @@ const styles = StyleSheet.create({
         fontFamily: "sans-serif-condensed"
     },
     userInfo: {
-        flex: 0.6,
+        flex: 0.5,
         paddingBottom:100,
         flexDirection: 'column', 
         alignItems: "center",
@@ -107,4 +137,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: "#fff"
     },
+    buttonContainer:{
+        flex: 0.1,
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+        alignItems:'center',
+        marginBottom: 10
+    },
+    button:{
+        borderRadius: 10
+    }
 });
