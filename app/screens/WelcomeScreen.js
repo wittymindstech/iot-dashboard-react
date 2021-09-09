@@ -68,7 +68,7 @@ export default class WelcomeScreen extends React.Component{
                     <Button
                         title="Devices"
                         color="#4287f5"
-                        onPress={() => this.navigating.navigate('Devices')}
+                        onPress={() => this.navigating.navigate('DeviceList')}
                         style={styles.button}
                     />
                     
